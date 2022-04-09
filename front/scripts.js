@@ -1,3 +1,4 @@
+
 function dibujarPixels(){
     var matriz = document.getElementById('matriz')
     for(let i = 0; i < 24; i++){
@@ -36,33 +37,20 @@ function guardar(){
             listaPixeles.push([p.id, p.style.backgroundColor])
         });
     });
-    console.log(listaPixeles)
 
 
-    fetch('http://localhost:6942/guardar', {
+    fetch(apiDomain() + '/guardar', {
         mode: 'cors', 
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(listaPixeles)
-    }).then(response => console.log('respuesta guardar', response));
-}
-
-function guardarAmazon(){
-    fetch('http://localhost:6942/guardarAmazon', {
-        mode: 'cors',
-    }).then(response => console.log('respuesta guardarAmazon', response));
-}
-
-function cargarAmazon(){
-    fetch('http://localhost:6942/cargarAmazon', {
-        mode: 'cors',
-    }).then(response => console.log('respuesta cargarAmazon', response));
+    })
 }
 
 function cargar(){
-    fetch('http://localhost:6942/cargar', {
+    fetch(apiDomain() + '/cargar', {
         mode: 'cors', 
     }).then(response => response.json())
         .then(response => {
@@ -70,7 +58,6 @@ function cargar(){
                 document.getElementById(p[0]).style.backgroundColor = p[1]
             })
         }).then(() => {
-            console.log('cargar in 1s...')
             setTimeout(cargar, 1000)
         })
 }
