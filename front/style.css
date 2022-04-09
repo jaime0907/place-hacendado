@@ -1,0 +1,54 @@
+.caja {
+    width: 48px;
+    height: 48px;
+    
+}
+
+.caja:hover{
+    box-shadow: inset 0px 0px 0px 3px #FFFFFF;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    height: 100%;
+}
+
+
+.matrizContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    height: 100%;
+}
+
+.fila {
+    display: flex;
+    flex-direction: row;
+}
+
+.matriz {
+    border-width: 4px;
+    border-color: rgb(231, 231, 231);
+    border-style: solid;
+}
+
+.mainbody {
+    height: 100%;
+    margin: 0;
+    background-color: #222222;
+    color: #FFFFFF;
+}
+
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 56px;
+    background-color: #302853;
+}
