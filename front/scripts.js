@@ -1,3 +1,5 @@
+var socket = io(apiDomain());
+
 
 function dibujarPixels(){
     var matriz = document.getElementById('matriz')
@@ -24,7 +26,9 @@ function pintarPixel(event){
     var id = event.srcElement.id
     var color = document.getElementById('colorpicker').value
     document.getElementById(id).style.backgroundColor = color
-    guardar()
+    
+    socket.emit('pixel', {data: [id, color]});
+    //guardar()
 }
 
 function guardar(){
@@ -62,5 +66,13 @@ function cargar(){
         })
 }
 
+socket.on('pixels', function(response) {
+    console.log('pixels', response)
+    Object.keys(response).forEach(id => {
+        document.getElementById(id).style.backgroundColor = response[id]
+    })
+});
+
+
 dibujarPixels()
-cargar()
+//cargar()

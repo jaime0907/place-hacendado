@@ -1,1 +1,1 @@
-lista_pixeles = []
+pixels = {}
